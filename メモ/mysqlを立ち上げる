@@ -1,0 +1,4 @@
+docker ps でコンテナ名の取得
+docker exec -it 4144ef20770e bash
+mysql -u root -p
+パスの入力
