@@ -6,12 +6,6 @@ function h($s){
 
 session_start();
 
-//ログイン済みの場合
-if (isset($_SESSION['EMAIL'])) {
-  echo 'ようこそ' .  h($_SESSION['EMAIL']) . "さん<br>";
-  echo "<a href='/logout.php'>ログアウトはこちら。</a>";
-  exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -19,24 +13,27 @@ if (isset($_SESSION['EMAIL'])) {
  <head>
    <meta charset="utf-8">
    <title>Login</title>
+   <link rel="stylesheet" href="css/styles.css">
  </head>
  <body>
-   <h1>ようこそ、ログインしてください。</h1>
-   <form  action="login.php" method="post">
-     <label for="email">email</label>
-     <input type="email" name="email">
-     <label for="password">password</label>
-     <input type="password" name="password">
-     <button type="submit">Sign In!</button>
-   </form>
-   <h1>初めての方はこちら</h1>
-   <form action="signUp.php" method="post">
-     <label for="email">email</label>
-     <input type="email" name="email">email
-     <label for="password">password</label>
-     <input type="password" name="password">
-     <button type="submit">Sign Up!</button>
-     <p>※パスワードは半角英数字をそれぞれ１文字以上含んだ、８文字以上で設定してください。</p>
-   </form>
+
+   <!-- 　Header start -->
+    <header class="site-header">
+      <div class="wrapper site-header__wrapper">
+        <a href="#" class="brand">check_sheet</a>
+        <nav class="nav">
+          <ul class="nav__wrapper">
+            <?php
+            if (isset($_SESSION['EMAIL'])) {
+              echo "<li class='nav__item'><a href='/logout.php'>ログアウト</a></li>";
+            }
+            else{
+              echo "<li class='nav__item'><a href='loginview.php'>ログイン/新規登録</a></li>";
+            }?>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Header end -->
  </body>
 </html>
