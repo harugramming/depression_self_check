@@ -1,17 +1,5 @@
 <?php
-
-function h($s){
-  return htmlspecialchars($s, ENT_QUOTES, 'utf-8');
-}
-
-session_start();
-
-//ログイン済みの場合
-if (isset($_SESSION['EMAIL'])) {
-  echo 'ようこそ' .  h($_SESSION['EMAIL']) . "さん<br>";
-  echo "<a href='/logout.php'>ログアウトはこちら。</a>";
-  exit;
-}
+  require("../app/php/function.php");
 ?>
 
 <!DOCTYPE html>
@@ -19,26 +7,40 @@ if (isset($_SESSION['EMAIL'])) {
  <head>
    <meta charset="utf-8">
    <title>Login</title>
-   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/login.css">
+  <!-- BootstrapのCSS読み込み -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- jQuery読み込み -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- BootstrapのJS読み込み -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
  </head>
  <body>
 
-   <h1>ようこそ、ログインしてください。</h1>
-   <form  action="login.php" method="post">
-     <label for="email">email</label>
-     <input type="email" name="email">
-     <label for="password">password</label>
-     <input type="password" name="password">
-     <button type="submit">Sign In!</button>
-   </form>
-   <h1>初めての方はこちら</h1>
-   <form action="signUp.php" method="post">
-     <label for="email">email</label>
-     <input type="email" name="email">email
-     <label for="password">password</label>
-     <input type="password" name="password">
-     <button type="submit">Sign Up!</button>
-     <p>※パスワードは半角英数字をそれぞれ１文字以上含んだ、８文字以上で設定してください。</p>
-   </form>
+    <?php
+    require("../app/php/_header.php");
+    ?>
+
+    <div class="form-wrapper">
+      <h1>Sign In</h1>
+      <form action="login.php" method="post">
+        <div class="form-item">
+          <label for="email"></label>
+          <input type="email" name="email" required="required" placeholder="Email Address"></input>
+        </div>
+        <div class="form-item">
+          <label for="password"></label>
+          <input type="password" name="password" required="required" placeholder="Password"></input>
+        </div>
+        <div class="button-panel">
+          <input type="submit" class="button" title="Sign In" value="Sign In"></input>
+        </div>
+      </form>
+      <div class="form-footer">
+        <p><a href="createnewuser.php">Create an account</a></p>
+        <p><a href="#">Forgot password?</a></p>
+      </div>
+    </div>
  </body>
 </html>
