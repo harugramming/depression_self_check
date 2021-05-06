@@ -55,19 +55,19 @@ session_start();
             <th class="check_table_number">1</th>
             <td class="check_table_text">体がだるく疲れやすい</td>
             <td class="check_table_select">
-              <input id="01_01" type="radio" name="q1" value="0" class="left">
+              <input id="01_01" type="radio" name="q1" value="1" class="left">
               <label for="01_01">いいえ</label>
             </td>
             <td class="check_table_select">
-              <input id="01_02" type="radio" name="q1" value="1">
+              <input id="01_02" type="radio" name="q1" value="2">
               <label for="01_02">ときどき</label>
             </td>
             <td class="check_table_select">
-              <input id="01_03" type="radio" name="q1" value="2">
+              <input id="01_03" type="radio" name="q1" value="3">
               <label for="01_03">しばしば</label>
             </td>
             <td class="check_table_select">
-              <input id="01_04" type="radio" name="q1" value="3" class="left">
+              <input id="01_04" type="radio" name="q1" value="4" class="left">
               <label for="01_04">つねに</label>
             </td>
           </tr>
@@ -137,9 +137,10 @@ session_start();
     </div>
     <!-- Check sheet　end -->
 
-    <!-- check result start -->
-    
-    <!-- check result end -->
+    <!-- Check result start -->
+    <button id="check_button">診断</button>
+    合計点数<input types="text" id="point_sum"> / <input types="text" id="max_point"> = <input types="text" id="percentage"> %
+    <!-- Check result end -->
 
 
 
