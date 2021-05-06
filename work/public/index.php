@@ -13,6 +13,7 @@ session_start();
  <head>
    <meta charset="utf-8">
    <title>Login</title>
+   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
    <link rel="stylesheet" href="css/styles.css">
  </head>
  <body>
@@ -138,8 +139,19 @@ session_start();
     <!-- Check sheet　end -->
 
     <!-- Check result start -->
-    <button id="check_button">診断</button>
-    合計点数<input types="text" id="point_sum"> / <input types="text" id="max_point"> = <input types="text" id="percentage"> %
+    <div id="check_result">
+      <div id="score_container">
+        <p>合計点数</p>
+        <input types="text" id="point_sum">
+        <p>/</p>
+        <input types="text" id="max_point">
+        <p>=</p>
+        <input types="text" id="percentage"> %
+      </div>
+      <a id="check_button" class="btn-square-shadow">保存</a>
+
+    </div>
+
     <!-- Check result end -->
 
 
