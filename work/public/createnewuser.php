@@ -25,6 +25,10 @@
     <h1>初めての方はこちら</h1>
    <form action="signUp.php" method="post" id="createform">
      <div>
+      <label for="name">name</label>
+      <input type="text" name="name">
+     </div>
+     <div>
       <label for="email">email</label>
       <input type="email" name="email">
      </div>

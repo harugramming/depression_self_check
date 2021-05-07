@@ -19,10 +19,11 @@ body {
 
 /* Form Layout */
 .form-wrapper {
-  background: #f0f0f0;
+  background: #fefefe;
   margin: 3em auto;
   padding: 0 1em;
   max-width: 370px;
+  border: solid 1px;
 }
 
 h1 {

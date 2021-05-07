@@ -1,0 +1,7 @@
+データベース名: tables_in_myapp ( myapp )
+テーブル名：Users
+  id:
+  email:
+  password:
+  name:
+  created:

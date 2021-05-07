@@ -1,7 +1,7 @@
    <!-- 　Header start -->
    <header class="site-header">
       <div class="wrapper site-header__wrapper">
-        <a href="#" class="brand">check_sheet</a>
+        <a href="../../index.php" class="brand">check_sheet</a>
         <nav class="nav">
           <ul class="nav__wrapper">
             <?php
