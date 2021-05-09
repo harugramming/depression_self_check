@@ -7,4 +7,10 @@ CREATE TABLE users (
   name varchar(20),
   created timestamp not null default current_timestamp
   );
-  
+CREATE TABLE checksheet (
+  id INT,
+  number INT,
+  contents varchar(255),
+  created timestamp not null default current_timestamp
+);
+INSERT INTO checksheet VALUES (3, 1, "体がだるく疲れやすい");

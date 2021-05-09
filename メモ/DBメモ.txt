@@ -5,3 +5,8 @@
   password:
   name:
   created:
+テーブル名：checksheet
+  id:
+  number:
+  contents:
+  created:

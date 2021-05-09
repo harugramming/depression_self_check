@@ -27,3 +27,40 @@ $('.check_table').on('click', function() {
   }
   
 });
+
+$('#check_add').on('click', function(){
+  $text = "<table class='check_table'>"
+        + "<tbody>"
+        + "<tr id='question4'>"
+        + "<th class='check_table_number'>4</th>"
+        + "<td class='check_table_text'><input type='text' id='check_content4' value=''></td>"
+        + "</tr>"
+        + "</tbody>"
+        + "</table>";
+  console.log($text);
+  $('.check_sheet_container').append($text);
+});
+
+$('#check_save').on('click', function(){
+  console.log("ok");
+  var array_contents = [];
+  $('.check_table > tbody > tr > td > input').each( function( index, element ){
+    array_contents.push($(element).val());
+  });
+  console.log(array_contents);
+
+  $.ajax({
+    url: 'check_save.php',
+    type: 'GET',
+    dataType: 'json',
+    data: {
+      'array_contents' : array_contents
+    }
+  })
+  .done(function(data) {
+      // 通信成功時の処理を記述
+  })
+  .fail(function() {
+      // 通信失敗時の処理を記述
+  });
+});

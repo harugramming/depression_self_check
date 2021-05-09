@@ -5,6 +5,9 @@ RUN apk --update add tzdata && \
     apk del tzdata && \
     rm -rf /var/cache/apk/*
 
+RUN apt-get install -y language-pack-ja-base language-pack-ja
+ENV LANG=ja_JP.UTF-8
+
 RUN docker-php-ext-install pdo pdo_mysql mysqli mbstring
 
 COPY php.ini-development /usr/local/etc/php/php.ini
