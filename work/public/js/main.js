@@ -36,12 +36,14 @@ $('#check_add').on('click', function(){
         + "<tr id='question'" + $number + ">"
         + "<th class='check_table_number'>" + $number + "</th>"
         + "<td class='check_table_text'><input type='text' id='check_content" + $number + "' value=''></td>"
+        + "<td><button class='check_delete'>削除</button></td>"
         + "</tr>"
         + "</tbody>"
         + "</table>";
   $('.check_sheet_container').append($text);
 });
 
+// 設問の状態を保存
 $('#check_save').on('click', function(){
   console.log("ok");
   var array_contents = [];
@@ -64,4 +66,20 @@ $('#check_save').on('click', function(){
   .fail(function() {
       // 通信失敗時の処理を記述
   });
+});
+
+// 設問を削除
+// 後から追加した要素にも適用するときの書き方だあ。
+$(document).on('click', '.check_delete' , function() {
+  //何行目の削除ボタンかを取得
+  var number = $('.check_delete').index(this);
+  //行を削除
+  $('.check_table').eq(number).remove();
+
+  // 設問の番号のテキストを修正
+  $('.check_table').each( function( index, element ){
+    $('.check_table th').eq(index).text(index + 1);
+  });
+ 
+  
 });

@@ -34,7 +34,10 @@
           <tbody>
             <tr id="question1">
               <th class="check_table_number">1</th>
-              <td class="check_table_text"><input type="text" id="check_content1" value="ああああ"></td>
+              <td class="check_table_text">
+                <input type="text" id="check_content1" value="ああああ">
+              </td>
+              <td><button class='check_delete'>削除</button></td>
             </tr>
           </tbody>
         </table>
@@ -42,7 +45,10 @@
           <tbody>
             <tr id="question2">
               <th class="check_table_number">2</th>
-              <td class="check_table_text"><input type="text" id="check_content2" value="いいいい"></td>
+              <td class="check_table_text">
+                <input type="text" id="check_content2" value="いいいい">
+              </td>
+              <td><button class='check_delete'>削除</button></td>
             </tr>
           </tbody>
         </table>
@@ -51,6 +57,8 @@
             <tr id="question3">
               <th class="check_table_number">3</th>
               <td class="check_table_text"><input type="text" id="check_content3" value="うううう"></td>
+              <td><button class='check_delete'>削除</button></td>
+
             </tr>
           </tbody>
         </table>
@@ -59,10 +67,12 @@
             <tr id="question4">
               <th class="check_table_number">4</th>
               <td class="check_table_text"><input type="text" id="check_content4" value="ええええ"></td>
+              <td><button class='check_delete'>削除</button></td>
+
             </tr>
           </tbody>
         </table>
-      </div>
+    </div>
       <button id="check_save">保存</button>
       <button id="check_add">追加</button>
     <!-- Check sheet　end -->
