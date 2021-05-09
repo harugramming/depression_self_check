@@ -28,16 +28,17 @@ $('.check_table').on('click', function() {
   
 });
 
+//設問を追加
 $('#check_add').on('click', function(){
+  $number = $('.check_table').length + 1;   // 次に追加する設問の数字
   $text = "<table class='check_table'>"
         + "<tbody>"
-        + "<tr id='question4'>"
-        + "<th class='check_table_number'>4</th>"
-        + "<td class='check_table_text'><input type='text' id='check_content4' value=''></td>"
+        + "<tr id='question'" + $number + ">"
+        + "<th class='check_table_number'>" + $number + "</th>"
+        + "<td class='check_table_text'><input type='text' id='check_content" + $number + "' value=''></td>"
         + "</tr>"
         + "</tbody>"
         + "</table>";
-  console.log($text);
   $('.check_sheet_container').append($text);
 });
 
