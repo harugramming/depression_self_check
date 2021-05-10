@@ -36,7 +36,7 @@ $('#check_add').on('click', function(){
         + "<tr id='question'" + $number + ">"
         + "<th class='check_table_number'>" + $number + "</th>"
         + "<td class='check_table_text'><input type='text' id='check_content" + $number + "' value=''></td>"
-        + "<td><button class='check_delete'>削除</button></td>"
+        + "<td><i class='fas fa-times check_delete'></i></td>"
         + "</tr>"
         + "</tbody>"
         + "</table>";

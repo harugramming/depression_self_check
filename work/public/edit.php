@@ -38,7 +38,7 @@
               <td class="check_table_text">
                 <input type="text" id="check_content1" value="ああああ">
               </td>
-              <td><button class='check_delete'>削除</button></td>
+              <td><i class="fas fa-times check_delete"></i></td>
             </tr>
           </tbody>
         </table>
@@ -49,7 +49,7 @@
               <td class="check_table_text">
                 <input type="text" id="check_content2" value="いいいい">
               </td>
-              <td><button class='check_delete'>削除</button></td>
+              <td><i class="fas fa-times check_delete"></i></td>
             </tr>
           </tbody>
         </table>
@@ -58,8 +58,7 @@
             <tr id="question3">
               <th class="check_table_number">3</th>
               <td class="check_table_text"><input type="text" id="check_content3" value="うううう"></td>
-              <td><button class='check_delete'>削除</button></td>
-
+              <td><i class="fas fa-times check_delete"></i></td>
             </tr>
           </tbody>
         </table>
@@ -68,14 +67,15 @@
             <tr id="question4">
               <th class="check_table_number">4</th>
               <td class="check_table_text"><input type="text" id="check_content4" value="ええええ"></td>
-              <td><button class='check_delete'>削除</button></td>
-
+              <td><i class="fas fa-times check_delete"></i></td>
             </tr>
           </tbody>
         </table>
     </div>
-      <button id="check_save">保存</button>
-      <button id="check_add">追加</button>
+    <div id="button_container">
+      <a id="check_add" class="btn-square-shadow">追加</a>
+      <a id="check_save" class="btn-square-shadow">保存</a>
+    </div>
     <!-- Check sheet　end -->
 
     <!-- javascriptにPHPのセッション変数を渡します -->
