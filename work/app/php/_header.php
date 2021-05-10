@@ -6,6 +6,7 @@
           <ul class="nav__wrapper">
             <?php
             if (isset($_SESSION['EMAIL'])) {
+              echo "<li class='nav__item'><a href='#'>" . $_SESSION['NAME'] . "</a></li>";
               echo "<li class='nav__item'><a href='/logout.php'>ログアウト</a></li>";
             }
             else{

@@ -7,12 +7,13 @@
     require("../app/php/_header.php");
     require("../app/php/_sidebar.php");
 
-    //ログインされている場合、チェックシートを表示
+    //ログインされている場合、
     if (isset($_SESSION['EMAIL'])) {
       
     }
     else{ //ログインしていない場合、初期画面を表示
       require("../app/php/_home.php");
+      exit;
     }
 
   ?>
@@ -77,6 +78,10 @@
       <button id="check_add">追加</button>
     <!-- Check sheet　end -->
 
+    <!-- javascriptにPHPのセッション変数を渡します -->
+    <script type="text/javascript">	
+      var id = '<?php echo $_SESSION['ID']; ?>';
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
  </body>

@@ -1,6 +1,7 @@
 <?php
   require_once('config.php');
-  $array_contents = $_GET['array_contents'];
+  $array_contents = $_POST['array_contents'];
+  $id = $_POST['id'];
 
   //　接続
   $pdo = new PDO(DSN, DB_USER, DB_PASS);
@@ -10,14 +11,14 @@
 
   $stmt = $pdo->prepare($sql);
 
-  $params = array(':id' => 3);
+  $params = array(':id' => $id);
   
   $stmt->execute($params);
 
 
   // 全登録
 
-$count = 0;
+  $count = 0;
 
   foreach($array_contents as $content)
 {
@@ -29,7 +30,7 @@ $count = 0;
   
   // 挿入する値を配列に格納する
   $params = array(
-    ':id' => 3,
+    ':id' => $id,
     ':number' => $count,
     ':check_content1' => $content
   );

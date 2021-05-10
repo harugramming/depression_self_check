@@ -11,7 +11,7 @@ if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 //DB内でPOSTされたメールアドレスを検索
 try {
   $pdo = new PDO(DSN, DB_USER, DB_PASS);
-  $stmt = $pdo->prepare('select * from userDeta where email = ?');
+  $stmt = $pdo->prepare('select * from users where email = ?');
   $stmt->execute([$_POST['email']]);
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
 } catch (\Exception $e) {
@@ -22,10 +22,13 @@ if (!isset($row['email'])) {
   echo 'メールアドレス又はパスワードが間違っています。';
   return false;
 }
-//パスワード確認後sessionにメールアドレスを渡す
+//パスワード確認後sessionにメールアドレス, id, 名前を渡す
 if (password_verify($_POST['password'], $row['password'])) {
   session_regenerate_id(true); //session_idを新しく生成し、置き換える
   $_SESSION['EMAIL'] = $row['email'];
+  $_SESSION['ID'] = $row['id'];
+  $_SESSION['NAME'] = $row['name'];
+
   echo 'ログインしました';
   header('Location:' . ROOT_URL . '/index.php');
 } else {

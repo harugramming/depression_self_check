@@ -45,6 +45,7 @@ $('#check_add').on('click', function(){
 
 // 設問の状態を保存
 $('#check_save').on('click', function(){
+  
   console.log("ok");
   var array_contents = [];
   $('.check_table > tbody > tr > td > input').each( function( index, element ){
@@ -54,10 +55,11 @@ $('#check_save').on('click', function(){
 
   $.ajax({
     url: 'check_save.php',
-    type: 'GET',
+    type: 'POST',
     dataType: 'json',
     data: {
-      'array_contents' : array_contents
+      'array_contents' : array_contents,
+      'id' : id
     }
   })
   .done(function(data) {
