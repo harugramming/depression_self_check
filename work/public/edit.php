@@ -1,5 +1,5 @@
 <?php
-  require("../app/php/function.php");
+  require_once("../app/php/function.php");
 ?>
 
   <?php
@@ -11,8 +11,8 @@
     if (isset($_SESSION['EMAIL'])) {
       
     }
-    else{ //ログインしていない場合、初期画面を表示
-      require("../app/php/_home.php");
+    else{  //ログインしていない場合、ログイン画面へ遷移
+      header('Location:' . $ROOT_URL . '/loginview.php');
       exit;
     }
 
