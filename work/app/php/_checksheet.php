@@ -11,88 +11,56 @@
           </tr>
         </tbody>
       </table>
-      <table class="check_table">
-        <tbody>
-          <tr id="question1">
-            <th class="check_table_number">1</th>
-            <td class="check_table_text">体がだるく疲れやすい</td>
-            <td class="check_table_select">
-              <input id="01_01" type="radio" name="q1" value="1" class="left">
-              <label for="01_01">いいえ</label>
-            </td>
-            <td class="check_table_select">
-              <input id="01_02" type="radio" name="q1" value="2">
-              <label for="01_02">ときどき</label>
-            </td>
-            <td class="check_table_select">
-              <input id="01_03" type="radio" name="q1" value="3">
-              <label for="01_03">しばしば</label>
-            </td>
-            <td class="check_table_select">
-              <input id="01_04" type="radio" name="q1" value="4" class="left">
-              <label for="01_04">つねに</label>
-            </td>
-          </tr>
-          <tr id="question2">
-            <th class="check_table_number">2</th>
-            <td class="check_table_text">騒音が気になる</td>
-            <td class="check_table_select">
-              <input id="02_01" type="radio" name="q2" value="1" class="left">
-              <label for="02_01">いいえ</label>
-            </td>
-            <td class="check_table_select">
-              <input id="02_02" type="radio" name="q2" value="2">
-              <label for="02_02">ときどき</label>
-            </td>
-            <td class="check_table_select">
-              <input id="02_03" type="radio" name="q2" value="3">
-              <label for="02_03">しばしば</label>
-            </td>
-            <td class="check_table_select">
-              <input id="02_04" type="radio" name="q2" value="4" class="left">
-              <label for="02_04">つねに</label>
-            </td>
-          </tr>
-          <tr id="question3">
-            <th class="check_table_number">3</th>
-            <td class="check_table_text">	最近気が沈んだり気が重くなる</td>
-            <td class="check_table_select">
-              <input id="03_01" type="radio" name="q3" value="1" class="left">
-              <label for="03_01">いいえ</label>
-            </td>
-            <td class="check_table_select">
-              <input id="03_02" type="radio" name="q3" value="2">
-              <label for="03_02">ときどき</label>
-            </td>
-            <td class="check_table_select">
-              <input id="03_03" type="radio" name="q3" value="3">
-              <label for="03_03">しばしば</label>
-            </td>
-            <td class="check_table_select">
-              <input id="03_04" type="radio" name="q3" value="4" class="left">
-              <label for="03_04">つねに</label>
-            </td>
-          </tr>
-          <tr id="question4">
-            <th class="check_table_number">4</th>
-            <td class="check_table_text">テレビを見ていて楽しい</td>
-            <td class="check_table_select">
-              <input id="04_01" type="radio" name="q4" value="1" class="left">
-              <label for="04_01">いいえ</label>
-            </td>
-            <td class="check_table_select">
-              <input id="04_02" type="radio" name="q4" value="2">
-              <label for="04_02">ときどき</label>
-            </td>
-            <td class="check_table_select">
-              <input id="04_03" type="radio" name="q4" value="3">
-              <label for="04_03">しばしば</label>
-            </td>
-            <td class="check_table_select">
-              <input id="04_04" type="radio" name="q4" value="4" class="left">
-              <label for="04_04">つねに</label>
-            </td>
-          </tr>
+
+    
+    <?php  
+
+    
+    require_once('config.php');
+
+    //チェックシートの項目を格納する配列
+    $contents = array();
+
+    //　接続
+    $pdo = new PDO(DSN, DB_USER, DB_PASS);
+    $sql = "SELECT * FROM checksheet WHERE id = :id ORDER BY number";
+    $stmt = $pdo->prepare($sql);
+    $params = array(':id' => $_SESSION['ID']);
+    $stmt->execute($params);
+
+    // foreach文で配列の中身を一行ずつ代入
+    foreach ($stmt as $row) {
+      $contents[] = $row['contents'];
+    };
+
+    ?>
+    <table class='check_table'>
+      <tbody>
+<?php
+    foreach($contents as $index => $content){
+      echo "<tr id='question" . ($index + 1) . "'>
+              <th class='check_table_number'>" . ($index + 1) . "</th>
+                <td class='check_table_text'>" . $content . "</td>
+                <td class='check_table_select'>
+                  <input id='01_01' type='radio' name='q" . ($index + 1) . "' value='1' class='left'>
+                  <label for='01_01'>いいえ</label>
+                </td>
+                <td class='check_table_select'>
+                <input id='01_02' type='radio' name='q" . ($index + 1) . "' value='2'>
+                <label for='01_02'>ときどき</label>
+              </td>
+              <td class='check_table_select'>
+                <input id='01_03' type='radio' name='q" . ($index + 1) . "' value='3'>
+                <label for='01_03'>しばしば</label>
+              </td>
+              <td class='check_table_select'>
+                <input id='01_04' type='radio' name='q" . ($index + 1) . "' value='4' class='left'>
+                <label for='01_04'>つねに</label>
+              </td>
+            </tr>";
+    };
+    ?>
+
         </tbody>
       </table>
 

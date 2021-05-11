@@ -7,7 +7,7 @@
   $pdo = new PDO(DSN, DB_USER, DB_PASS);
 
   // //　全削除
-  $sql = "DELETE FROM checksheet WHERE id = :id";
+  $sql = "DELETE FROM checksheet WHERE id = :id ";
 
   $stmt = $pdo->prepare($sql);
 
